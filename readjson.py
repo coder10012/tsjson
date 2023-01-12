@@ -6,9 +6,16 @@ with open('accounts.json', 'r') as f:
 
 locale.setlocale(locale.LC_ALL, 'de_DE.UTF-8')
 
-menu_main = f
+menu_main1 = f"""
+Sie koennen die Datenbank nach folgenden Kriterien filtern:
+1) Kontostand
+2) Alter
+3) Beenden
+Geben Sie entweder die Nummer oder das Attribut, nach dem Sie filtern wollen an.
 """
-Sie können die Datenbank nach folgenden Kriterien filtern:
+
+menu_main2 = f"""
+Sie koennen die Datenbank nach folgenden Kriterien filtern:
 1) Status
 2) Kontostand
 3) Alter
@@ -60,14 +67,12 @@ def filter_alter ():
             ausgabe_datensatz(dataset)
 
 while(True):
-    #print (menu_main)
+    print (menu_main1)
     user_in = input("Eingabe ")
-    if (user_in == "1" or str.lower(user_in) == "status"):
-        pass
-    elif (user_in == "2" or str.lower(user_in) == "kontostand"):
+    if (user_in == "1" or str.lower(user_in) == "kontostand"):
         filter_kontostand()
-    elif (user_in == "3" or str.lower(user_in) == "alter"):
+    elif (user_in == "2" or str.lower(user_in) == "alter"):
         filter_alter()    
-    elif (user_in == "12" or str.lower(user_in) == "beenden"):
+    elif (user_in == "3" or str.lower(user_in) == "beenden"):
         break 
 
